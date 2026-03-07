@@ -1,6 +1,5 @@
 "use client"
 
-import { useInView } from "@/hooks/use-in-view"
 import { Code2, GraduationCap, Heart, Users } from "lucide-react"
 
 const highlights = [
@@ -27,17 +26,11 @@ const highlights = [
 ]
 
 export function AboutSection() {
-  const { ref, isInView } = useInView({ threshold: 0.2 })
-
   return (
-    <section id="about" className="relative py-20 sm:py-32 px-4 sm:px-6" ref={ref as React.MutableRefObject<HTMLElement | null>}>
+    <section id="about" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div
-          className={`mb-16 transition-all duration-150 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
+        <div className="mb-16">
           <span className="text-purple-400 text-sm font-medium uppercase tracking-widest">
             About Me
           </span>
@@ -49,11 +42,7 @@ export function AboutSection() {
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left - Text */}
-          <div
-            className={`space-y-6 transition-all duration-150 delay-100 ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
+          <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
               I&apos;m a dedicated software engineer with a passion for building elegant solutions
               and empowering others through technology education. Currently working at{" "}
@@ -76,15 +65,10 @@ export function AboutSection() {
 
           {/* Right - Highlight Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map((item, index) => (
+            {highlights.map((item) => (
               <div
                 key={item.title}
-                className={`glass-purple glass-hover p-6 rounded-2xl transition-all duration-150 ${
-                  isInView
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }`}
-                style={{ transitionDelay: `${150 + index * 50}ms` }}
+                className="glass-purple glass-hover p-6 rounded-2xl"
               >
                 <div className="w-12 h-12 rounded-xl bg-purple-500/25 flex items-center justify-center mb-4 border border-purple-400/40">
                   <item.icon className="w-6 h-6 text-purple-300" />

@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/hooks/use-in-view"
+import Image from "next/image"
 import { Mic, Users, Calendar, Image as ImageIcon } from "lucide-react"
 
 const events = [
@@ -33,23 +33,17 @@ const events = [
     type: "Mentor",
     description:
       "Mentoring new Access Program students in CS/AI, recognized by the US Embassy for outstanding contribution to the program.",
-    image: "/events/mini-grant.jpg",
+    image: "/events/access-program.jpg",
     upcoming: false,
   },
 ]
 
 export function EventsSection() {
-  const { ref, isInView } = useInView({ threshold: 0.1 })
-
   return (
-    <section id="events" className="relative py-20 sm:py-32 px-4 sm:px-6" ref={ref as React.MutableRefObject<HTMLElement | null>}>
+    <section id="events" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div
-          className={`mb-16 transition-all duration-150 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
+        <div className="mb-16">
           <span className="text-purple-400 text-sm font-medium uppercase tracking-widest">
             Events & Talks
           </span>
@@ -57,28 +51,26 @@ export function EventsSection() {
             Sharing knowledge, building community
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl">
-            More content and photos coming soon! I regularly participate in events and host talks
-            to help others grow in tech.
+            I regularly participate in events and host talks to help others grow in tech.
           </p>
         </div>
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {events.map((event, index) => (
+          {events.map((event) => (
             <div
               key={event.title}
-              className={`group relative glass-purple glass-hover rounded-2xl overflow-hidden transition-all duration-150 ${
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${100 + index * 75}ms` }}
+              className="group relative glass-purple glass-hover rounded-2xl overflow-hidden"
             >
-              {/* Image Placeholder */}
+              {/* Image */}
               <div className="relative h-72 bg-purple-500/10 overflow-hidden">
                 {event.image ? (
-                  <img
+                  <Image
                     src={event.image}
                     alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-150 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-200 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -96,14 +88,12 @@ export function EventsSection() {
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-purple-500/25 text-purple-300 border border-purple-400/40 backdrop-blur-sm">
                     {event.type === "Speaker" && <Mic className="w-3 h-3" />}
-                    {event.type === "Speaker" && <Users className="w-3 h-3" />}
-                    {event.type === "Lead Trainer" && <Users className="w-3 h-3" />}
-                    {event.type === "Mentor" && <Users className="w-3 h-3" />}
+                    {(event.type === "Lead Trainer" || event.type === "Mentor") && <Users className="w-3 h-3" />}
                     {event.type}
                   </span>
                 </div>
 
-                {/* Upcoming Badge */}
+                {/* Ongoing Badge */}
                 {event.upcoming && (
                   <div className="absolute top-4 right-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 backdrop-blur-sm">
@@ -128,17 +118,13 @@ export function EventsSection() {
         </div>
 
         {/* Call to Action */}
-        <div
-          className={`mt-12 text-center transition-all duration-150 delay-300 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
+        <div className="mt-12 text-center">
           <p className="text-muted-foreground mb-4">
             Interested in having me speak at your event?
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 glass-purple glass-hover px-6 py-3 rounded-xl text-foreground font-medium transition-all duration-150 hover:text-purple-300 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 glass-purple glass-hover px-6 py-3 rounded-xl text-foreground font-medium transition-colors duration-150 hover:text-purple-300 w-full sm:w-auto"
           >
             <Mic className="w-4 h-4 shrink-0" />
             <span>Get in touch</span>

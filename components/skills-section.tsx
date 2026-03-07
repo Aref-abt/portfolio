@@ -1,7 +1,5 @@
 "use client"
 
-import { useInView } from "@/hooks/use-in-view"
-
 const skillCategories = [
   {
     title: "Frontend",
@@ -30,17 +28,11 @@ const skillCategories = [
 ]
 
 export function SkillsSection() {
-  const { ref, isInView } = useInView({ threshold: 0.1 })
-
   return (
-    <section id="skills" className="relative py-20 sm:py-32 px-4 sm:px-6" ref={ref as React.MutableRefObject<HTMLElement | null>}>
+    <section id="skills" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div
-          className={`mb-16 transition-all duration-150 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
+        <div className="mb-16">
           <span className="text-cyan-400 text-sm font-medium uppercase tracking-widest">
             Skills
           </span>
@@ -54,10 +46,9 @@ export function SkillsSection() {
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className={`glass-cyan glass-hover p-6 rounded-2xl transition-all duration-150 ${
+              className={`glass-cyan glass-hover p-6 rounded-2xl ${
                 index === 0 ? "lg:col-span-2 lg:row-span-1" : ""
-              } ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: `${100 + index * 50}ms` }}
+              }`}
             >
               <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyan-400" />
@@ -67,7 +58,7 @@ export function SkillsSection() {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-xl bg-cyan-500/15 text-cyan-100 border border-cyan-400/30 hover:border-cyan-400/50 hover:bg-cyan-500/25 transition-all duration-150 cursor-default"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-xl bg-cyan-500/15 text-cyan-100 border border-cyan-400/30 hover:border-cyan-400/50 hover:bg-cyan-500/25 transition-colors duration-150 cursor-default"
                   >
                     {skill}
                   </span>
@@ -78,11 +69,7 @@ export function SkillsSection() {
         </div>
 
         {/* Soft Skills */}
-        <div
-          className={`mt-8 glass-cyan p-8 rounded-2xl transition-all duration-150 delay-300 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
+        <div className="mt-8 glass-cyan p-8 rounded-2xl">
           <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-cyan-400" />
             Soft Skills
@@ -94,11 +81,10 @@ export function SkillsSection() {
               "Project Planning",
               "Communication",
               "Problem Solving",
-            ].map((skill, index) => (
+            ].map((skill) => (
               <div
                 key={skill}
-                className="text-center p-4 rounded-xl bg-cyan-500/15 border border-cyan-400/30 hover:border-cyan-400/50 transition-all duration-150"
-                style={{ transitionDelay: `${350 + index * 30}ms` }}
+                className="text-center p-4 rounded-xl bg-cyan-500/15 border border-cyan-400/30 hover:border-cyan-400/50 transition-colors duration-150"
               >
                 <span className="text-sm text-cyan-100">{skill}</span>
               </div>

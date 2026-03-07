@@ -1,6 +1,5 @@
 "use client"
 
-import { useInView } from "@/hooks/use-in-view"
 import { Building2, Calendar, Briefcase, ExternalLink } from "lucide-react"
 
 const experiences = [
@@ -15,7 +14,7 @@ const experiences = [
     current: true,
   },
   {
-    title: "Software Engineer",
+    title: "Senior Software Engineer",
     company: "Valsoft/Aspire Software",
     location: "AllTrust Networks",
     period: "Jul 2024 - Present",
@@ -26,7 +25,7 @@ const experiences = [
     current: true,
   },
   {
-    title: "Coding Trainer",
+    title: "Robotics & ML Trainer",
     company: "UNICEF",
     location: "Executed by CodeBrave",
     period: "Feb 2025 - Jun 2025",
@@ -79,17 +78,11 @@ const experiences = [
 ]
 
 export function ExperienceSection() {
-  const { ref, isInView } = useInView({ threshold: 0.1 })
-
   return (
-    <section id="experience" className="relative py-20 sm:py-32 px-4 sm:px-6" ref={ref as React.MutableRefObject<HTMLElement | null>}>
+    <section id="experience" className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <div
-          className={`mb-16 transition-all duration-150 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
+        <div className="mb-16">
           <span className="text-emerald-400 text-sm font-medium uppercase tracking-widest">
             Experience
           </span>
@@ -100,21 +93,13 @@ export function ExperienceSection() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline Line - centered on desktop, left on mobile */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-400 via-emerald-500/60 to-emerald-600/20 md:-translate-x-1/2" />
 
-          {/* Experience Items */}
           <div className="space-y-8 md:space-y-12">
             {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0
               return (
-                <div
-                  key={`${exp.company}-${exp.title}`}
-                  className={`relative transition-all duration-150 ${
-                    isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                  }`}
-                  style={{ transitionDelay: `${100 + index * 60}ms` }}
-                >
+                <div key={`${exp.company}-${exp.title}`} className="relative">
                   {/* Timeline Dot */}
                   <div className="absolute left-6 md:left-1/2 w-4 h-4 -translate-x-1/2 z-10">
                     <div className={`w-full h-full rounded-full ${exp.current ? 'bg-emerald-400' : 'bg-emerald-600'} border-4 border-background shadow-lg shadow-emerald-500/30`} />
@@ -123,19 +108,16 @@ export function ExperienceSection() {
                     )}
                   </div>
 
-                  {/* Card Container - Alternating sides on desktop */}
                   <div className={`pl-14 md:pl-0 md:w-[calc(50%-2.5rem)] ${isLeft ? 'md:mr-auto md:pr-0' : 'md:ml-auto md:pl-0'}`}>
                     <div className="glass-emerald glass-hover rounded-2xl p-6 relative group">
-                      {/* Arrow pointing to timeline - desktop only */}
-                      <div 
+                      <div
                         className={`hidden md:block absolute top-7 w-3 h-3 rotate-45 ${
-                          isLeft 
-                            ? 'right-0 translate-x-1/2 bg-emerald-500/30 border-t border-r border-emerald-500/40' 
+                          isLeft
+                            ? 'right-0 translate-x-1/2 bg-emerald-500/30 border-t border-r border-emerald-500/40'
                             : 'left-0 -translate-x-1/2 bg-emerald-500/30 border-b border-l border-emerald-500/40'
-                        }`} 
+                        }`}
                       />
-                      
-                      {/* Header */}
+
                       <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                         <div className="flex items-center gap-3">
                           <div className="w-11 h-11 rounded-xl bg-emerald-500/25 border border-emerald-400/40 flex items-center justify-center shrink-0">
@@ -168,7 +150,6 @@ export function ExperienceSection() {
                         )}
                       </div>
 
-                      {/* Period & Location */}
                       <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
                         <span className="flex items-center gap-1.5">
                           <Calendar className="w-4 h-4 text-emerald-500/70" />
@@ -182,12 +163,10 @@ export function ExperienceSection() {
                         )}
                       </div>
 
-                      {/* Description */}
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                         {exp.description}
                       </p>
 
-                      {/* Tags */}
                       <div className="flex flex-wrap gap-2">
                         {exp.tags.map((tag) => (
                           <span
@@ -205,7 +184,6 @@ export function ExperienceSection() {
             })}
           </div>
 
-          {/* Timeline End Dot */}
           <div className="absolute left-6 md:left-1/2 bottom-0 w-3 h-3 -translate-x-1/2 rounded-full bg-emerald-700/60 border-2 border-background" />
         </div>
       </div>
