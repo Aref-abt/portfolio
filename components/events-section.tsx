@@ -63,7 +63,7 @@ export function EventsSection() {
               className="group relative glass-purple glass-hover rounded-2xl overflow-hidden"
             >
               {/* Image */}
-              <div className="relative h-72 bg-purple-500/10 overflow-hidden">
+              <div className="relative h-96 bg-purple-500/10 overflow-hidden">
                 {event.image ? (
                   <Image
                     src={event.image}
