@@ -14,24 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Aref Abou Trabi | Software Engineer',
   description: 'Dedicated software engineer building modern solutions with Vue.js, Node.js, React, and more. Currently at Aspire Software working on fintech solutions.',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  generator: 'next.js',
 }
 
 export const viewport: Viewport = {

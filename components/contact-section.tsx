@@ -180,7 +180,7 @@ export function ContactSection() {
           }`}
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Aref Abou Trabi. Built with passion and Next.js.
+            built by Aref Abou Trabi
           </p>
         </div>
       </div>
