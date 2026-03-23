@@ -7,7 +7,7 @@ const skillCategories = [
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Express", "Scala", "PHP", "Java", "C++", "C#", "REST APIs"],
+    skills: ["Node.js", "Express", "Python", "Scala", "PHP", "Java", "C++", "C#", "REST APIs"],
   },
   {
     title: "Databases",
@@ -15,7 +15,7 @@ const skillCategories = [
   },
   {
     title: "AI & ML",
-    skills: ["TensorFlow.js", "Neural Networks", "GitHub Copilot", "ChatGPT Integration", "Claude", "LLM API Integration", "Cursor", "Windsurf"],
+    skills: ["TensorFlow", "TensorFlow.js", "Neural Networks", "GitHub Copilot", "ChatGPT Integration", "Claude", "LLM API Integration", "Cursor", "Windsurf"],
   },
   {
     title: "Mobile & IoT",
@@ -23,7 +23,7 @@ const skillCategories = [
   },
   {
     title: "Tools & Platforms",
-    skills: ["Git", "Jira", "Heroku", "WordPress", "Agile/Scrum", "Railway", "Render", "Antigravity"],
+    skills: ["AWS SageMaker", "Git", "Jira", "Heroku", "WordPress", "Agile/Scrum", "Railway", "Render", "Antigravity"],
   },
 ]
 

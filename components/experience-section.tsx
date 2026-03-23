@@ -19,8 +19,8 @@ const experiences = [
     location: "AllTrust Networks",
     period: "Jul 2024 - Present",
     description:
-      "Build and maintain front-end applications using Vue.js and back-end using Scala, managing code with Git in an Agile team environment. Handle, test, and ensure security of sensitive financial data using PostgreSQL, working within compliance standards. Use Jira for project management and Heroku for deployment, coordinating with cross-functional teams to deliver fintech solutions.",
-    tags: ["Vue.js", "Scala", "PostgreSQL", "Fintech", "Heroku"],
+      "Build and maintain front-end applications using Vue.js and back-end using Scala, managing code with Git in an Agile team environment. Handle, test, and ensure security of sensitive financial data using PostgreSQL, working within compliance standards. Train ML models on AWS SageMaker using Python and TensorFlow, rigorously testing and tuning them to achieve near-perfect accuracy. Use Jira for project management and Heroku for deployment, coordinating with cross-functional teams to deliver fintech solutions.",
+    tags: ["Vue.js", "Scala", "Python", "AWS SageMaker", "TensorFlow", "PostgreSQL", "Fintech", "Heroku"],
     link: "https://alltrust.com",
     current: true,
   },
