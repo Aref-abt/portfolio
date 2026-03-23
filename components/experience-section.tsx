@@ -7,7 +7,7 @@ const experiences = [
     title: "Lead Full Stack Engineering Trainer",
     company: "United Nations",
     location: "Digital Hub",
-    period: "Oct 2025 - Present",
+    period: "Oct 2025 - Feb 2026",
     description:
       "Mentored aspiring software engineers through project-based learning, building full-stack apps using MERN (MongoDB, Express, React, Node.js) and Next.js. Designed and delivered training on design patterns, SOLID principles, UI/UX, and Agile methodologies. Led all Scrum ceremonies to promote collaboration and iterative delivery. Created and maintained course curricula combining theory with real-world projects. Conducted live coding sessions, demos, and code reviews emphasizing clean, scalable architecture. Integrated AI tools (GitHub Copilot, ChatGPT) to demonstrate AI-driven software design, debugging, and documentation.",
     tags: ["MERN", "Next.js", "Agile", "AI", "SOLID"],
